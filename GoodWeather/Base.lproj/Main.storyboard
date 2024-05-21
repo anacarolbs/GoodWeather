@@ -11,18 +11,38 @@
         <!--GoodWeather-->
         <scene sceneID="ap6-NZ-cy9">
             <objects>
-                <tableViewController id="CKS-YC-kCo" sceneMemberID="viewController">
+                <tableViewController id="CKS-YC-kCo" customClass="WeatherListTableViewController" customModule="GoodWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ujf-WK-UcQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LT1-Wc-zT8">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="100" id="LT1-Wc-zT8">
+                                <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LT1-Wc-zT8" id="7yr-4j-Ila">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LT1-Wc-zT8" id="7yr-4j-Ila" customClass="WeatherCell" customModule="GoodWeather" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2W-Dw-a2T">
+                                            <rect key="frame" x="306" y="31" width="76" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tv-dv-AaF">
+                                            <rect key="frame" x="11" y="33" width="52" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4tv-dv-AaF" firstAttribute="leading" secondItem="7yr-4j-Ila" secondAttribute="leading" constant="11" id="DiB-ff-VK3"/>
+                                        <constraint firstItem="4tv-dv-AaF" firstAttribute="top" secondItem="7yr-4j-Ila" secondAttribute="top" constant="33" id="Kae-oa-jff"/>
+                                        <constraint firstItem="x2W-Dw-a2T" firstAttribute="top" secondItem="7yr-4j-Ila" secondAttribute="top" constant="31" id="gPh-ke-wjJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="x2W-Dw-a2T" secondAttribute="trailing" constant="11" id="qu9-ac-elD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -47,14 +67,35 @@
         <!--Add City-->
         <scene sceneID="ZIE-bZ-XTM">
             <objects>
-                <viewController id="b1Q-wo-FKD" sceneMemberID="viewController">
+                <viewController id="b1Q-wo-FKD" customClass="AddWeatherViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="66W-7R-NGb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yto-SZ-AKw">
+                                <rect key="frame" x="35" y="127" width="327" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNO-eG-prW">
+                                <rect key="frame" x="166" y="187" width="61" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="NrE-hx-KdB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yto-SZ-AKw" firstAttribute="leading" secondItem="NrE-hx-KdB" secondAttribute="leading" constant="35" id="45J-Ow-3uZ"/>
+                            <constraint firstItem="hNO-eG-prW" firstAttribute="top" secondItem="Yto-SZ-AKw" secondAttribute="bottom" constant="26" id="HVg-hX-PcI"/>
+                            <constraint firstItem="hNO-eG-prW" firstAttribute="centerX" secondItem="66W-7R-NGb" secondAttribute="centerX" id="av0-4C-8jE"/>
+                            <constraint firstItem="Yto-SZ-AKw" firstAttribute="top" secondItem="NrE-hx-KdB" secondAttribute="top" constant="71" id="toh-0w-pYv"/>
+                            <constraint firstItem="NrE-hx-KdB" firstAttribute="trailing" secondItem="Yto-SZ-AKw" secondAttribute="trailing" constant="31" id="v5w-wN-jIZ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add City" id="nhb-YM-u97"/>
+                    <navigationItem key="navigationItem" title="Add City" id="nhb-YM-u97">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="KOS-LH-7DK"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9b-1S-Q6N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
