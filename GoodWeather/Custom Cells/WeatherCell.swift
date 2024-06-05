@@ -2,7 +2,6 @@
 //  WeatherCell.swift
 //  GoodWeather
 //
-//  Created by Ana Carolina Barbosa de Souza on 21/05/24.
 //
 
 import Foundation
@@ -14,7 +13,7 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var temperatureLabel: UILabel!
     
     func configure(_ vm: WeatherViewModel) {
-        self.cityNameLabel.text = vm.city
-        self.temperatureLabel.text = "\(vm.temperature.formatAsDegree())"
+        self.cityNameLabel.text = vm.name
+        self.temperatureLabel.text = "\(vm.currentTemperature.temperature.formatAsDegree)"
     }
 }

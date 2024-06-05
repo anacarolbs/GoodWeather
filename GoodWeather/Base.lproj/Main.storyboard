@@ -10,6 +10,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings-->
+        <scene sceneID="IqC-bj-sh7">
+            <objects>
+                <tableViewController id="x54-eo-yaA" customClass="SettingsTableViewController" customModule="GoodWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iVJ-VI-ZCQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" id="g6N-Of-cp9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g6N-Of-cp9" id="HYq-fF-sqN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="x54-eo-yaA" id="gZz-Av-Ddy"/>
+                            <outlet property="delegate" destination="x54-eo-yaA" id="Tcc-zx-eDx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="uM7-j0-Iqk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kjf-tl-gEt">
+                            <connections>
+                                <action selector="done" destination="x54-eo-yaA" id="pFm-Sr-Q5f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dQ-KN-rwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938.4000000000001" y="-595.05247376311854"/>
+        </scene>
         <!--GoodWeather-->
         <scene sceneID="JIM-Jf-iYr">
             <objects>
@@ -58,10 +93,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="GoodWeather" id="IIx-Fa-nxG">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="k9T-3N-Hzh"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" image="740-gear-toolbar.png" id="k9T-3N-Hzh">
+                            <connections>
+                                <segue destination="R5I-SQ-NJE" kind="presentation" identifier="SettingsTableViewController" id="R6y-Zg-OKN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hl2-WT-mdL">
                             <connections>
-                                <segue destination="Byj-tV-6Qs" kind="presentation" id="eaX-GJ-cN1"/>
+                                <segue destination="Byj-tV-6Qs" kind="presentation" identifier="AddWeatherCityViewController" id="eaX-GJ-cN1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -154,5 +193,26 @@
             </objects>
             <point key="canvasLocation" x="1872.8" y="82.3088455772114"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tZn-sT-Nvb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R5I-SQ-NJE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pA2-8M-RDo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x54-eo-yaA" kind="relationship" relationship="rootViewController" id="mON-fv-s4o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDk-q1-ITa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999.20000000000005" y="-595.05247376311854"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="740-gear-toolbar.png" width="22" height="22"/>
+    </resources>
 </document>
